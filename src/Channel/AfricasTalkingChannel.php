@@ -15,9 +15,15 @@ class AfricasTalkingChannel
      */
     protected $africasTalking;
 
-    public function __construct(AfricasTalking $africasTalking)
+    /**
+     * @var string
+     */
+    protected $senderId;
+
+    public function __construct(AfricasTalking $africasTalking, $senderId = null)
     {
         $this->africasTalking = $africasTalking;
+        $this->senderId = $senderId;
     }
 
     /**
@@ -33,6 +39,16 @@ class AfricasTalkingChannel
 
         $africasTalkingMessage = $notification->toAfricasTalking($notifiable);
         $sms = $this->africasTalking->sms();
-        return $sms->send(['to' => $to, 'message' => $africasTalkingMessage->message]);
+
+        $payload = [
+            'to' => $to,
+            'message' => $africasTalkingMessage->message
+        ];
+
+        if (isset($this->senderId)) {
+            $payload['from'] = $this->senderId;
+        }
+
+        return $sms->send($payload);
     }
 }
