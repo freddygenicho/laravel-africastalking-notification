@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FreddyGenicho\Africastalking\Channel;
+namespace FreddyGenicho\AfricasTalking\Channel;
 
 use AfricasTalking\SDK\AfricasTalking;
 use Illuminate\Notifications\Notification;

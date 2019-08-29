@@ -3,10 +3,10 @@
 namespace FreddyGenicho\AfricasTalking;
 
 use AfricasTalking\SDK\AfricasTalking;
+use FreddyGenicho\AfricasTalking\Channel\AfricasTalkingChannel;
 use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Notification;
-use FreddyGenicho\Africastalking\Channel\AfricasTalkingChannel;
 
 class AfricasTalkingNotificationServiceProvider extends ServiceProvider
 {
@@ -20,6 +20,7 @@ class AfricasTalkingNotificationServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/config/africastalking.php', 'africastalking'
         );
+
     }
 
     /**
