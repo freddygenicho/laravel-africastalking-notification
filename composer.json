@@ -1,0 +1,51 @@
+{
+    "name": "freddygenicho/africastalking-notification-channel",
+    "description": "Africastalking Notification Channel for laravel",
+    "keywords": [
+        "laravel",
+        "notifications",
+        "africastalking"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fredrick Ochieng",
+            "email": "fredygenicho@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "africastalking/africastalking": "^2.2",
+        "illuminate/notifications": "5.3.*|5.4.*|5.5.*|5.5.*|5.6.*|5.7.*|5.8.*",
+        "illuminate/queue": "5.3.*|5.4.*|5.5.*|5.5.*|5.6.*|5.7.*|5.8.*",
+        "illuminate/support": "5.3.*|5.4.*|5.5.*|5.5.*|5.6.*|5.7.*|5.8.*",
+        "illuminate/config": "5.3.*|5.4.*|5.5.*|5.5.*|5.6.*|5.7.*|5.8.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FreddyGenicho\\AfricasTalking\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FreddyGenicho\\AfricasTalking\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FreddyGenicho\\AfricasTalking\\AfricasTalkingNotificationServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
