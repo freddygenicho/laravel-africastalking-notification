@@ -4,7 +4,6 @@
 namespace FreddyGenicho\AfricasTalking\Channel;
 
 use AfricasTalking\SDK\AfricasTalking;
-use Illuminate\Config\Repository;
 use Illuminate\Notifications\Notification;
 
 class AfricasTalkingChannel
@@ -38,8 +37,9 @@ class AfricasTalkingChannel
         }
 
         $message = $notification->toAfricasTalking($notifiable);
-        $content = trim($message->content);
-        $from = $this->getFrom($notifiable, $notification);
+
+        $content = $message->content;
+        $from = $message->from;
 
         $payload = [
             'to' => $to,
@@ -48,28 +48,15 @@ class AfricasTalkingChannel
 
         if (isset($from)) {
             $payload['from'] = $from;
+        } else {
+            $from = config('africastalking.sender_id');
+            if (isset($from)) {
+                $payload['from'] = $from;
+            }
         }
 
         $sms = $this->africasTalking->sms();
 
         return $sms->send($payload);
-    }
-
-    /**
-     * @param $notifiable
-     * @param Notification $notification
-     * @return Repository|mixed|null
-     */
-    protected function getFrom($notifiable, Notification $notification)
-    {
-        if ($from = $notification->toAfricasTalking($notifiable)->getFrom()) {
-            return $from;
-        }
-
-        if (function_exists('config') && $from = config('africastalking.sender_id')) {
-            return $from;
-        }
-
-        return null;
     }
 }
