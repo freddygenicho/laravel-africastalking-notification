@@ -46,7 +46,9 @@ class AfricasTalkingChannel
         ];
 
         if (isset($this->senderId)) {
-            $payload['from'] = $this->senderId;
+            if (empty(trim($this->senderId))) {
+                $payload['from'] = $this->senderId;
+            }
         }
 
         return $sms->send($payload);
