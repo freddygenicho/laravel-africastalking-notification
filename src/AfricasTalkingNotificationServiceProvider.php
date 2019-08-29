@@ -22,19 +22,9 @@ class AfricasTalkingNotificationServiceProvider extends ServiceProvider
             __DIR__ . '/config/africastalking.php', 'africastalking'
         );
 
-        $this->app->when(AfricasTalkingChannel::class)
-            ->needs(AfricasTalking::class)
-            ->give(function () {
-                if (!config('africastalking.username')) {
-                    throw new \Exception('Africastalking `username`. Missing');
-                }
-
-                if (!config('africastalking.api_key')) {
-                    throw new \Exception('Africastalking `api_key`. Missing');
-                }
-
-                return new AfricasTalking(config('africastalking.username'), config('africastalking.api_key'));
-            });
+        $this->app->singleton(AfricasTalking::class, static function () {
+            return new AfricasTalking(config('africastalking.username'), config('africastalking.api_key'));
+        });
 
         $this->app->alias(AfricasTalking::class, 'africasTalking');
     }
