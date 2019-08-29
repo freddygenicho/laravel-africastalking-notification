@@ -2,8 +2,11 @@
 
 Laravel AfricasTalking Notification Channel
 
-[![Latest Version](https://img.shields.io/github/release/freddygenicho/laravel-africastalking-notification.svg?style=flat-square)](https://github.com/benwilkins/laravel-fcm-notification/releases)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/network)
+[![GitHub license](https://img.shields.io/github/license/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/blob/master/LICENSE.md)
+[![GitHub issues](https://img.shields.io/github/issues/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/issues)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/freddygenicho/laravel-africastalking-notification?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Ffreddygenicho%2Flaravel-africastalking-notification)
 
 Use this package to send sms notifications via Africastaclking. Laravel 5.3+ required.
 
