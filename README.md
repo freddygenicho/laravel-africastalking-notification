@@ -71,7 +71,8 @@ use FreddyGenicho\AfricasTalking\Message\AfricasTalkingMessage;
 public function toAfricasTalking($notifiable)
 {
    return (new AfricasTalkingMessage())
-          ->message('Hello world');
+          ->content('Hello world')
+          ->from('Genicho');
 }
 ```
 

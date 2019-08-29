@@ -7,6 +7,7 @@ use FreddyGenicho\AfricasTalking\Channel\AfricasTalkingChannel;
 use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Notification;
+use mysql_xdevapi\Exception;
 
 class AfricasTalkingNotificationServiceProvider extends ServiceProvider
 {
@@ -21,9 +22,19 @@ class AfricasTalkingNotificationServiceProvider extends ServiceProvider
             __DIR__ . '/config/africastalking.php', 'africastalking'
         );
 
-        $this->app->singleton(AfricasTalking::class, static function () {
-            return new AfricasTalking(config('africastalking.username'), config('africastalking.api_key'));
-        });
+        $this->app->when(AfricasTalkingChannel::class)
+            ->needs(AfricasTalking::class)
+            ->give(function () {
+                if (!config('africastalking.username')) {
+                    throw new \Exception('Africastalking `username`. Missing');
+                }
+
+                if (!config('africastalking.api_key')) {
+                    throw new \Exception('Africastalking `api_key`. Missing');
+                }
+
+                return new AfricasTalking(config('africastalking.username'), config('africastalking.api_key'));
+            });
 
         $this->app->alias(AfricasTalking::class, 'africasTalking');
     }
@@ -40,10 +51,7 @@ class AfricasTalkingNotificationServiceProvider extends ServiceProvider
 
         Notification::resolved(function (ChannelManager $service) {
             $service->extend('africasTalking', function ($app) {
-                return new AfricasTalkingChannel(
-                    $app->make('africasTalking'),
-                    config('africastalking.sender_id')
-                );
+                return new AfricasTalkingChannel($app->make('africasTalking'));
             });
         });
     }

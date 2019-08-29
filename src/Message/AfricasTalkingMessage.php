@@ -11,16 +11,33 @@ class AfricasTalkingMessage
      *
      * @var string
      */
-    public $message;
+    public $content;
+
+    /**
+     * The sender id
+     *
+     * @var string
+     */
+    public $from;
 
     /**
      * set message to be sent
-     * @param $message
+     * @param $content
      * @return $this
      */
-    public function message($message)
+    public function content($content)
     {
-        $this->message = $message;
+        $this->content = $content;
+        return $this;
+    }
+
+    /**
+     * @param $from
+     * @return $this
+     */
+    public function from($from)
+    {
+        $this->from = $from;
         return $this;
     }
 
