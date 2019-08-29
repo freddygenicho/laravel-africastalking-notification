@@ -2,6 +2,7 @@
 
 Laravel AfricasTalking Notification Channel
 
+[![Build Status](https://travis-ci.com/freddygenicho/laravel-africastalking-notification.svg?branch=master)](https://travis-ci.com/freddygenicho/laravel-africastalking-notification)
 [![GitHub stars](https://img.shields.io/github/stars/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/network)
 [![GitHub license](https://img.shields.io/github/license/freddygenicho/laravel-africastalking-notification)](https://github.com/freddygenicho/laravel-africastalking-notification/blob/master/LICENSE.md)
