@@ -44,7 +44,7 @@ Use Artisan to create a notification:
 php artisan make:notification SomeNotification
 ```
 
-Return `[fcm]` in the `public function via($notifiable)` method of your notification:
+Return `[africasTalking]` in the `public function via($notifiable)` method of your notification:
 
 ```php
 /**
